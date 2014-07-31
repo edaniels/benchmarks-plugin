@@ -38,7 +38,7 @@ public class GitParser {
     public Change getChangeHead() throws IOException {
 
         RevWalk walk = new RevWalk(repo);
-        AnyObjectId id = repo.readOrigHead();
+        AnyObjectId id = repo.resolve( "HEAD" );
         RevCommit commit = walk.parseCommit( id );
 
         return new Change(
